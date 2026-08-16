@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bajrang Enterprises — Doors & Locks for Every Home</title>
+<meta name="description" content="Bajrang Enterprises — premium wooden, designer & security doors, plus locks & handles. Explore by category and find the perfect fit.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+<style>
+/* HERO with house photo + description ABOVE photo */
+#hero{position:relative;min-height:100vh;display:flex;flex-direction:column;background:var(--walnut)}
+.hero-top{position:relative;z-index:3;text-align:center;padding:clamp(96px,14vh,150px) clamp(20px,6vw,90px) clamp(30px,5vh,50px);max-width:900px;margin:0 auto}
+.hero-top .eb{font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;color:var(--coral);font-weight:600;margin-bottom:18px;display:inline-flex;align-items:center;gap:12px}
+.hero-top .eb::before,.hero-top .eb::after{content:"";width:30px;height:1px;background:var(--coral)}
+.hero-top h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.4rem,5.5vw,4.4rem);line-height:1.05;letter-spacing:-.01em;color:#fff}
+.hero-top h1 em{font-style:italic;color:var(--coral)}
+.hero-top p{color:rgba(255,255,255,.8);font-size:clamp(1rem,1.6vw,1.2rem);max-width:60ch;margin:18px auto 0;line-height:1.7}
+.hero-photo{position:relative;flex:1;min-height:52vh;overflow:hidden}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(59,42,30,.5),transparent 22%,transparent 70%,rgba(59,42,30,.4))}
+.hero-cta{position:absolute;z-index:3;left:50%;bottom:clamp(30px,6vh,60px);transform:translateX(-50%);display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+/* BESTSELLER auto-carousel */
+#best{background:var(--paper)}
+.best-stage{margin-top:44px;display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(30px,5vw,64px);align-items:center;background:var(--card);border-radius:24px;overflow:hidden;box-shadow:var(--shadow);min-height:440px}
+.best-media{position:relative;height:100%;min-height:440px;background:var(--ivory-2);overflow:hidden}
+.best-media .slide{position:absolute;inset:0;opacity:0;transform:scale(1.06);transition:opacity 1s var(--spring),transform 6s ease-out}
+.best-media .slide.on{opacity:1;transform:scale(1)}
+.best-media .slide img{width:100%;height:100%;object-fit:cover}
+.best-media .tag{position:absolute;top:20px;left:20px;z-index:3;background:var(--coral);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:7px 14px;border-radius:100px;box-shadow:var(--shadow-sm)}
+.best-info{padding:clamp(30px,4vw,54px)}
+.best-info .cat{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--coral);font-weight:600;margin-bottom:14px}
+.best-info .nm{font-family:var(--serif);font-weight:300;font-size:clamp(1.8rem,3.4vw,2.8rem);line-height:1.05;transition:opacity .5s}
+.best-info .ds{color:var(--ink-soft);font-size:1.02rem;margin-top:12px;line-height:1.7}
+.best-info .pr{font-family:var(--serif);font-size:2.2rem;color:var(--coral);margin-top:20px}
+.best-info .pr small{font-family:var(--sans);font-size:.82rem;color:var(--muted);margin-left:6px}
+.best-info .acts{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap}
+.best-dots{display:flex;gap:8px;margin-top:22px}
+.best-dots button{width:9px;height:9px;border-radius:50%;border:none;background:var(--line);cursor:pointer;transition:.3s var(--spring);padding:0}
+.best-dots button.on{background:var(--coral);width:26px;border-radius:100px}
+.best-fade{transition:opacity .45s}.best-fade.out{opacity:0}
+@media(max-width:860px){.best-stage{grid-template-columns:1fr}.best-media{min-height:320px}}
+/* NICHE grid */
+#niches{background:var(--ivory)}
+.niche-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:52px}
+.niche{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:3/4;cursor:pointer;box-shadow:var(--shadow-sm);transition:transform .5s var(--spring),box-shadow .5s;display:block}
+.niche:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.niche img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s var(--spring)}
+.niche:hover img{transform:scale(1.07)}
+.niche::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(36,28,21,.85))}
+.niche .nc{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:24px 22px;color:#fff}
+.niche .nc .nt{font-family:var(--serif);font-size:1.5rem;line-height:1.1}
+.niche .nc .ng{font-size:.86rem;color:rgba(255,255,255,.8);margin-top:4px}
+.niche .nc .nk{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-size:.76rem;font-weight:600;letter-spacing:.04em;color:#fff}
+.niche .nc .nk svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;transition:transform .4s var(--spring)}
+.niche:hover .nc .nk svg{transform:translateX(5px)}
+.niche .cnt{position:absolute;top:16px;right:16px;z-index:2;background:rgba(255,255,255,.9);color:var(--ink);font-size:.72rem;font-weight:700;padding:6px 12px;border-radius:100px}
+@media(max-width:860px){.niche-grid{grid-template-columns:1fr 1fr;gap:14px}}
+/* CTA */
+.cta{position:relative;z-index:2;margin:0 clamp(16px,4vw,60px);border-radius:26px;overflow:hidden;background:linear-gradient(135deg,#3B2A1E,#241610);padding:clamp(56px,9vw,110px) clamp(28px,6vw,80px);text-align:center}
+.cta::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 120% at 50% 0%,rgba(232,115,90,.28),transparent 62%)}
+.cta>*{position:relative;z-index:2}
+.cta h2{font-family:var(--serif);font-weight:300;font-size:clamp(2.2rem,6vw,4rem);color:#fff;line-height:1.05}
+.cta h2 em{font-style:italic;color:#F2C48A}
+.cta p{color:rgba(255,255,255,.8);margin-top:16px;font-size:1.1rem;max-width:46ch;margin-inline:auto}
+.cta .acts{justify-content:center;margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+#contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:52px}
+.ci{display:flex;gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}.ci:last-child{border-bottom:none}
+.ci .ico{width:44px;height:44px;flex:0 0 44px;border-radius:12px;background:var(--ivory-2);display:flex;align-items:center;justify-content:center}
+.ci .ico svg{width:20px;height:20px;stroke:var(--coral);fill:none;stroke-width:1.7}
+.ci .lab{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}.ci a,.ci span{font-size:1.05rem}
+.form .field{margin-bottom:20px}.form label{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:9px;font-weight:600}
+.form input,.form select,.form textarea{width:100%;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:var(--ink);font-family:var(--sans);font-size:1rem;transition:border-color .3s,box-shadow .3s}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--coral);box-shadow:0 0 0 3px rgba(232,115,90,.12)}
+.form select{appearance:none;cursor:pointer}.form textarea{resize:vertical;min-height:100px}
+.form .err{color:var(--coral-deep);font-size:.8rem;margin-top:6px;display:none}.form .err.show{display:block}
+#form-ok{display:none;color:#2e7d5b;font-size:.92rem;margin-top:14px}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="brand"><span class="bd"></span>Bajrang <em>Enterprises</em></a>
+  <div class="nav-links" id="navLinks">
+    <a href="#best" data-nav>Best Sellers</a>
+    <a href="#niches" data-nav>Categories</a>
+    <a href="#contact" data-nav>Contact</a>
+    <a href="#contact" class="nav-cta" data-nav>Get a Quote</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO: description ABOVE the house photo -->
+<header id="hero"><span id="top"></span>
+  <div class="hero-top">
+    <span class="eb">Bajrang Enterprises</span>
+    <h1>Doors &amp; locks that make a <em>grand entrance</em>.</h1>
+    <p>From handcrafted wooden doors to designer statements, high-security builds and the finishing locks &amp; handles — explore India's premium door house, category by category.</p>
+  </div>
+  <div class="hero-photo">
+    <img id="houseImg" alt="Grand home entrance with premium double doors">
+  </div>
+  <div class="hero-cta">
+    <a href="#niches" class="btn btn-coral" data-nav>Explore categories <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <a href="#best" class="btn btn-line" data-nav style="color:#fff;border-color:rgba(255,255,255,.5)">Best sellers</a>
+  </div>
+</header>
+
+<!-- BEST SELLERS auto-carousel -->
+<section class="section" id="best">
+  <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+    <div><div class="eyebrow">Best sellers</div><h2 class="h2">What everyone's <em>choosing</em>.</h2></div>
+    <p class="lead" style="margin:0;max-width:34ch">Our most-loved doors &amp; locks — updating live. Prices and details change with each slide.</p>
+  </div>
+  <div class="best-stage reveal">
+    <div class="best-media" id="bestMedia"></div>
+    <div class="best-info">
+      <div class="cat" id="bCat"></div>
+      <div class="nm best-fade" id="bName"></div>
+      <div class="ds best-fade" id="bDesc"></div>
+      <div class="pr best-fade" id="bPrice"></div>
+      <div class="acts">
+        <button class="btn btn-coral" id="bView">View this <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        <a href="#contact" class="btn btn-line" data-nav>Enquire</a>
+      </div>
+      <div class="best-dots" id="bDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- NICHE / CATEGORY grid → separate pages -->
+<section class="section" id="niches">
+  <div class="reveal" style="text-align:center;max-width:760px;margin:0 auto">
+    <div class="eyebrow" style="justify-content:center">Shop by category</div>
+    <h2 class="h2" style="max-width:none;margin-inline:auto">Find your <em>niche</em>.</h2>
+    <p class="lead" style="margin-inline:auto">Every category opens its own collection — browse the full range that fits your need.</p>
+  </div>
+  <div class="niche-grid" id="nicheGrid"></div>
+</section>
+
+<!-- CTA -->
+<div class="cta reveal">
+  <h2>Not sure what fits? <em>We'll help.</em></h2>
+  <p>Tell us about your space — we'll guide you to the right door and lock.</p>
+  <div class="acts"><a href="#contact" class="btn btn-coral" data-nav>Get a free quote <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><a href="#" class="btn btn-line" id="waCta" style="color:#fff;border-color:rgba(255,255,255,.4)">WhatsApp us</a></div>
+</div>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="reveal"><div class="eyebrow">Get a quote</div><h2 class="h2">Let's find your <em>door</em>.</h2></div>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="ci"><div class="ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="lab">Call / WhatsApp</div><a id="waLink" href="#" target="_blank" rel="noopener">Message us</a></div></div>
+      <div class="ci"><div class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></div><div><div class="lab">Email</div><a href="mailto:hello@bajrangdoors.com">hello@bajrangdoors.com</a></div></div>
+      <div class="ci"><div class="ico"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="lab">Showroom</div><span>Add your address here</span></div></div>
+      <div class="ci"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><div class="lab">Hours</div><span>Mon–Sat · 10am–8pm</span></div></div>
+    </div>
+    <div class="form reveal" id="bookForm">
+      <div class="field"><label for="fname">Your name</label><input id="fname" type="text" placeholder="Full name"><div class="err">Please enter your name.</div></div>
+      <div class="field"><label for="fneed">What you need</label><input id="fneed" type="text" placeholder="e.g. 2 wooden main doors + locks"><div class="err">Please add a few details.</div></div>
+      <div class="field"><label for="ftype">Category</label><select id="ftype"><option value="" disabled selected>Select…</option><option>Wooden Doors</option><option>Designer Doors</option><option>Security Doors</option><option>Locks &amp; Handles</option><option>Not sure — advise me</option></select><div class="err">Please choose one.</div></div>
+      <div class="field"><label for="fmsg">Anything else</label><textarea id="fmsg" placeholder="Sizes, quantity, location, timing…"></textarea></div>
+      <button class="btn btn-coral" id="submitBtn" style="width:100%;justify-content:center">Send enquiry <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      <div id="form-ok">Thank you — opening WhatsApp…</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-top">
+    <div><a href="index.html" class="brand"><span class="bd"></span>Bajrang <em>Enterprises</em></a><p class="foot-tag">Premium doors & locks, crafted & fitted for your home.</p></div>
+    <div class="foot-links">
+      <div class="foot-col" id="footNiches"><h5>Categories</h5></div>
+      <div class="foot-col"><h5>Company</h5><a href="#contact" data-nav>Get a Quote</a><a href="#" id="igLink">Instagram</a><a href="mailto:hello@bajrangdoors.com">Email</a></div>
+    </div>
+  </div>
+  <div class="foot-bottom"><span>© <span data-yr></span> Bajrang Enterprises — Premium Doors</span><span>Crafted & fitted with care</span></div>
+</footer>
+
+<div class="dmodal-back" id="dmb"><div class="dmodal"><button class="dm-close" id="dmc" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button><div class="dm-img"><img id="dmi" src="" alt=""></div><div class="dm-body"><div class="dm-tag">Bajrang · Door</div><div class="dm-name" id="dmn"></div><div class="dm-desc" id="dmd"></div><div class="dm-price" id="dmp"></div><ul class="dm-feats" id="dmf"></ul><a href="#contact" class="btn btn-coral" id="dmcta" data-nav style="justify-content:center">Enquire about this <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+<button class="palette-fab" id="pfab" aria-label="Colours"><svg viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/><circle cx="8.5" cy="7.5" r="1.5"/><circle cx="6.5" cy="12.5" r="1.5"/><path d="M12 2a10 10 0 1 0 0 20 2 2 0 0 0 2-2 2 2 0 0 1 2-2h2a4 4 0 0 0 4-4 10 10 0 0 0-10-10z"/></svg></button>
+<div class="palette-panel" id="ppanel"><h5>Theme</h5><p>Pick a colour palette</p><div class="sw-grid" id="swgrid"></div></div>
+<div class="to-top" id="toTop"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></div>
+
+<script src="common.js"></script>
+<script src="ui.js"></script>
+<script>
+document.getElementById('houseImg').src=HOUSE;
+
+/* NICHE grid → link to niche pages */
+(function(){
+  var g=document.getElementById('nicheGrid'),fn=document.getElementById('footNiches');
+  NICHES.forEach(function(n){
+    var a=document.createElement('a');a.className='niche reveal';a.href='niche.html?c='+n.id;
+    a.innerHTML='<img src="'+n.cover+'" alt="'+n.name+'"><span class="cnt">'+n.count+' items</span><div class="nc"><div class="nt">'+n.name+'</div><div class="ng">'+n.tag+'</div><span class="nk">Explore <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>';
+    g.appendChild(a);
+    var fa=document.createElement('a');fa.href='niche.html?c='+n.id;fa.textContent=n.name;fn.appendChild(fa);
+  });
+})();
+
+/* BEST SELLER auto-carousel — image+info change together */
+(function(){
+  var items=CATALOG.filter(function(i){return i.bs;});
+  if(!items.length)return;
+  var media=document.getElementById('bestMedia'),cat=document.getElementById('bCat'),nm=document.getElementById('bName'),ds=document.getElementById('bDesc'),pr=document.getElementById('bPrice'),dots=document.getElementById('bDots'),view=document.getElementById('bView');
+  var cur=0,timer;
+  // build slides + dots
+  items.forEach(function(it,i){
+    var s=document.createElement('div');s.className='slide'+(i===0?' on':'');
+    s.innerHTML=(it.bd?'<span class="tag">'+it.bd+'</span>':'')+'<img src="'+it.img+'" alt="'+it.n+'">';
+    media.appendChild(s);
+    var b=document.createElement('button');if(i===0)b.className='on';b.addEventListener('click',function(){go(i);});dots.appendChild(b);
+  });
+  var slides=media.querySelectorAll('.slide'),dbtns=dots.querySelectorAll('button');
+  var NICHENAME={wooden:'Wooden Door',designer:'Designer Door',security:'Security Door',locks:'Lock & Handle'};
+  function paint(i){
+    var it=items[i];
+    [nm,ds,pr].forEach(function(e){e.classList.add('out');});
+    setTimeout(function(){
+      cat.textContent=NICHENAME[it.niche]||'Featured';
+      nm.textContent=it.n;ds.textContent=it.d;pr.innerHTML=it.p+'<small>onwards</small>';
+      [nm,ds,pr].forEach(function(e){e.classList.remove('out');});
+    },260);
+    slides.forEach(function(s,j){s.classList.toggle('on',j===i);});
+    dbtns.forEach(function(d,j){d.classList.toggle('on',j===i);});
+    view.setAttribute('data-k',it.k);
+  }
+  function go(i){cur=(i+items.length)%items.length;paint(cur);restart();}
+  function next(){go(cur+1);}
+  function restart(){clearInterval(timer);timer=setInterval(next,4200);}
+  view.addEventListener('click',function(){var k=view.getAttribute('data-k');var el=document.querySelector('[data-k="'+k+'"]');/* open modal via delegation */ if(document.getElementById('dmb')){var ev=new MouseEvent('click',{bubbles:true});view.setAttribute('data-k',k);document.dispatchEvent(new CustomEvent('x'));}
+    // directly trigger modal
+    openBest(k);});
+  function openBest(k){var b=document.getElementById('dmb');if(!b)return;var it=CATALOG.filter(function(x){return x.k===k;})[0];if(!it)return;
+    document.getElementById('dmi').src=it.img;document.getElementById('dmn').textContent=it.n;document.getElementById('dmd').textContent=it.d;document.getElementById('dmp').textContent=it.p;
+    var fl=document.getElementById('dmf');fl.innerHTML='';featsFor(it).forEach(function(x){var li=document.createElement('li');li.textContent=x;fl.appendChild(li);});
+    b.classList.add('open');document.body.style.overflow='hidden';}
+  paint(0);restart();
+})();
+
+/* form → WhatsApp */
+(function(){
+  var btn=document.getElementById('submitBtn');if(!btn)return;
+  function mark(el,ok){var e=el.parentNode.querySelector('.err');if(e)e.classList.toggle('show',!ok);}
+  btn.addEventListener('click',function(){
+    var name=document.getElementById('fname'),need=document.getElementById('fneed'),type=document.getElementById('ftype'),msg=document.getElementById('fmsg'),ok=true;
+    if(!name.value.trim()){mark(name,false);ok=false;}else mark(name,true);
+    if(!need.value.trim()){mark(need,false);ok=false;}else mark(need,true);
+    if(!type.value){mark(type,false);ok=false;}else mark(type,true);
+    if(!ok)return;document.getElementById('form-ok').style.display='block';
+    var text=encodeURIComponent('Hello Bajrang Enterprises! I would like a quote.\n\nName: '+name.value+'\nRequirement: '+need.value+'\nCategory: '+type.value+(msg.value?'\n\n'+msg.value:''));
+    setTimeout(function(){window.open('https://wa.me/'+WA_NUMBER+'?text='+text,'_blank');},500);
+  });
+})();
+mountCommon();
+</script>
+</body>
+</html>
