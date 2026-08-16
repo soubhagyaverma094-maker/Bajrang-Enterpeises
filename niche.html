@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bajrang Enterprises — Category</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="theme.css">
+<style>
+/* niche hero banner */
+#nhero{position:relative;min-height:60vh;display:flex;align-items:flex-end;overflow:hidden;background:var(--walnut)}
+#nhero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+#nhero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(36,28,21,.5),transparent 30%,transparent 55%,rgba(36,28,21,.9))}
+.nhero-in{position:relative;z-index:2;max-width:1320px;margin:0 auto;width:100%;padding:0 clamp(20px,6vw,90px) clamp(44px,7vh,80px);color:#fff}
+.crumb{display:inline-flex;gap:8px;align-items:center;font-size:.78rem;color:rgba(255,255,255,.75);margin-bottom:18px}
+.crumb a:hover{color:var(--coral)}
+.nhero-in h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.4rem,5.5vw,4.4rem);line-height:1.04}
+.nhero-in h1 em{font-style:italic;color:var(--coral)}
+.nhero-in p{color:rgba(255,255,255,.82);font-size:clamp(1rem,1.6vw,1.2rem);max-width:52ch;margin-top:14px}
+.nhero-in .count{margin-top:18px;font-size:.82rem;letter-spacing:.04em;color:rgba(255,255,255,.7)}
+/* other niches strip */
+.other{display:flex;gap:12px;flex-wrap:wrap;margin-top:40px}
+.other a{padding:10px 20px;border-radius:100px;border:1px solid var(--line);font-size:.82rem;font-weight:600;color:var(--ink-soft);transition:.3s var(--spring)}
+.other a:hover,.other a.active{background:var(--ink);color:var(--ivory);border-color:var(--ink)}
+#contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:52px}
+.ci{display:flex;gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}.ci:last-child{border-bottom:none}
+.ci .ico{width:44px;height:44px;flex:0 0 44px;border-radius:12px;background:var(--ivory-2);display:flex;align-items:center;justify-content:center}
+.ci .ico svg{width:20px;height:20px;stroke:var(--coral);fill:none;stroke-width:1.7}
+.ci .lab{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}.ci a,.ci span{font-size:1.05rem}
+.form .field{margin-bottom:20px}.form label{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:9px;font-weight:600}
+.form input,.form select,.form textarea{width:100%;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;color:var(--ink);font-family:var(--sans);font-size:1rem}
+.form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--coral);box-shadow:0 0 0 3px rgba(232,115,90,.12)}
+.form textarea{resize:vertical;min-height:100px}.form select{appearance:none}
+.form .err{color:var(--coral-deep);font-size:.8rem;margin-top:6px;display:none}.form .err.show{display:block}
+#form-ok{display:none;color:#2e7d5b;font-size:.92rem;margin-top:14px}
+</style>
+</head>
+<body>
+<nav id="nav" class="solid">
+  <a href="index.html" class="brand"><span class="bd"></span>Bajrang <em>Enterprises</em></a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="index.html#niches">Categories</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="index.html#contact" class="nav-cta">Get a Quote</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<header id="nhero"><span id="top"></span>
+  <img id="nheroImg" alt="">
+  <div class="nhero-in">
+    <div class="crumb"><a href="index.html">Home</a> <span>/</span> <span id="crumbName">Category</span></div>
+    <h1 id="nTitle">Category</h1>
+    <p id="nTag"></p>
+    <div class="count" id="nCount"></div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="other" id="otherNiches"></div>
+  <div class="door-grid" id="grid"></div>
+</section>
+
+<!-- mini CTA -->
+<section class="section" id="contact" style="padding-top:0">
+  <div class="reveal"><div class="eyebrow">Interested?</div><h2 class="h2">Enquire about <em id="ctaCat">this range</em>.</h2></div>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="ci"><div class="ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="lab">Call / WhatsApp</div><a id="waLink" href="#" target="_blank" rel="noopener">Message us</a></div></div>
+      <div class="ci"><div class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></div><div><div class="lab">Email</div><a href="mailto:hello@bajrangdoors.com">hello@bajrangdoors.com</a></div></div>
+      <div class="ci"><div class="ico"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="lab">Showroom</div><span>Add your address here</span></div></div>
+    </div>
+    <div class="form reveal">
+      <div class="field"><label for="fname">Your name</label><input id="fname" type="text" placeholder="Full name"><div class="err">Please enter your name.</div></div>
+      <div class="field"><label for="fneed">What you need</label><input id="fneed" type="text" placeholder="e.g. main door + smart lock"><div class="err">Please add a few details.</div></div>
+      <div class="field"><label for="fmsg">Anything else</label><textarea id="fmsg" placeholder="Sizes, quantity, timing…"></textarea></div>
+      <button class="btn btn-coral" id="submitBtn" style="width:100%;justify-content:center">Send enquiry <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+      <div id="form-ok">Thank you — opening WhatsApp…</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-top">
+    <div><a href="index.html" class="brand"><span class="bd"></span>Bajrang <em>Enterprises</em></a><p class="foot-tag">Premium doors & locks, crafted & fitted for your home.</p></div>
+    <div class="foot-links"><div class="foot-col" id="footNiches"><h5>Categories</h5></div><div class="foot-col"><h5>Company</h5><a href="index.html#contact">Get a Quote</a><a href="mailto:hello@bajrangdoors.com">Email</a></div></div>
+  </div>
+  <div class="foot-bottom"><span>© <span data-yr></span> Bajrang Enterprises — Premium Doors</span><span>Crafted & fitted with care</span></div>
+</footer>
+
+<div class="dmodal-back" id="dmb"><div class="dmodal"><button class="dm-close" id="dmc" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button><div class="dm-img"><img id="dmi" src="" alt=""></div><div class="dm-body"><div class="dm-tag">Bajrang</div><div class="dm-name" id="dmn"></div><div class="dm-desc" id="dmd"></div><div class="dm-price" id="dmp"></div><ul class="dm-feats" id="dmf"></ul><a href="index.html#contact" class="btn btn-coral" id="dmcta" style="justify-content:center">Enquire about this <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div></div></div>
+<button class="palette-fab" id="pfab" aria-label="Colours"><svg viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/><circle cx="8.5" cy="7.5" r="1.5"/><circle cx="6.5" cy="12.5" r="1.5"/><path d="M12 2a10 10 0 1 0 0 20 2 2 0 0 0 2-2 2 2 0 0 1 2-2h2a4 4 0 0 0 4-4 10 10 0 0 0-10-10z"/></svg></button>
+<div class="palette-panel" id="ppanel"><h5>Theme</h5><p>Pick a colour palette</p><div class="sw-grid" id="swgrid"></div></div>
+<div class="to-top" id="toTop"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></svg></div>
+
+<script src="common.js"></script>
+<script src="ui.js"></script>
+<script>
+(function(){
+  var id=(new URLSearchParams(location.search)).get('c')||'wooden';
+  var meta={};NICHES.forEach(function(n){meta[n.id]=n;});
+  var n=meta[id]||NICHES[0];
+  document.title='Bajrang Enterprises — '+n.name;
+  document.getElementById('nheroImg').src=n.cover;
+  document.getElementById('crumbName').textContent=n.name;
+  document.getElementById('nTitle').innerHTML=n.name.replace(/(\S+)$/,'<em>$1</em>');
+  document.getElementById('nTag').textContent=n.tag+'. Explore our full '+n.name.toLowerCase()+' range.';
+  var items=CATALOG.filter(function(i){return i.niche===id;});
+  document.getElementById('nCount').textContent=items.length+' products in this category';
+  document.getElementById('ctaCat').textContent=n.name.toLowerCase();
+  var grid=document.getElementById('grid');
+  items.forEach(function(it){grid.appendChild(doorCard(it));});
+  // other niches nav
+  var on=document.getElementById('otherNiches');
+  NICHES.forEach(function(x){var a=document.createElement('a');a.href='niche.html?c='+x.id;a.textContent=x.name;if(x.id===id)a.className='active';on.appendChild(a);});
+  // footer niches
+  var fn=document.getElementById('footNiches');NICHES.forEach(function(x){var a=document.createElement('a');a.href='niche.html?c='+x.id;a.textContent=x.name;fn.appendChild(a);});
+  // form
+  var btn=document.getElementById('submitBtn');
+  function mark(el,ok){var e=el.parentNode.querySelector('.err');if(e)e.classList.toggle('show',!ok);}
+  btn.addEventListener('click',function(){
+    var name=document.getElementById('fname'),need=document.getElementById('fneed'),msg=document.getElementById('fmsg'),ok=true;
+    if(!name.value.trim()){mark(name,false);ok=false;}else mark(name,true);
+    if(!need.value.trim()){mark(need,false);ok=false;}else mark(need,true);
+    if(!ok)return;document.getElementById('form-ok').style.display='block';
+    var text=encodeURIComponent('Hello Bajrang! Interested in '+n.name+'.\n\nName: '+name.value+'\nRequirement: '+need.value+(msg.value?'\n\n'+msg.value:''));
+    setTimeout(function(){window.open('https://wa.me/'+WA_NUMBER+'?text='+text,'_blank');},500);
+  });
+  mountCommon();
+})();
+</script>
+</body>
+</html>
